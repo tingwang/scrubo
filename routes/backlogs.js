@@ -10,11 +10,7 @@ exports.list = function(req, res) {
  * create a new backlog
  */
 exports.create = function(req, res) {
-  var backlog1 = new Model.Backlog({
-    "name": "add login",
-    "storyPoints": 3,
-    "description": "As user i can login"
-  });
+  var backlog1 = new Model.Backlog(req.body);
   backlog1.save(function(err, backlog) {
     if (err) {
       res.send(500);
