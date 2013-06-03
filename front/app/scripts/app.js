@@ -7,6 +7,10 @@ angular.module('frontApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/backlog', {
+        templateUrl: 'views/backlog.html',
+        controller: 'BacklogCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

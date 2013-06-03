@@ -12,6 +12,18 @@ var express = require('express')
 
 var app = express();
 
+var config = {
+  allowedDomains:"*"
+};
+//CORS middleware
+var allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', config.allowedDomains);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next();
+};
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -22,6 +34,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(allowCrossDomain);
 
 // development only
 if ('development' == app.get('env')) {
@@ -33,6 +46,12 @@ app.get('/users', user.list);
 app.post('/backlogs', backlogs.create);
 app.put('/backlogs/:id', backlogs.update);
 app.delete('/backlogs/:id', backlogs.remove);
+app.options('/backlogs', function(req, res) {
+  res.header('Access-Control-Allow-Origin', config.allowedDomains);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
+  res.send();
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
