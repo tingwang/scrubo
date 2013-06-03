@@ -1,26 +1,25 @@
 <h1>Backlogs</h1>
 <form name="backlog-form" class="form-horizontal">
     <div class="control-group">
-        <label for="name" class="control-label">name:</label>
+        <label for="name" class="control-label">Name:</label>
         <div class="controls">
             <input ng-model="backlog.name" name="name" id="name" required>
         </div>
     </div>
 
     <div class="control-group">
-        <label for="name" class="control-label">name:</label>
+        <label for="name" class="control-label">Story Points:</label>
         <div class="controls">
-            <input ng-model="backlog.storyPoints" name="story-points">
+            <input type="number" min="1" ng-model="backlog.storyPoints" name="story-points">
         </div>
     </div>
     <div class="control-group">
-        <label for="name" class="control-label">name:</label>
+        <label for="name" class="control-label">Description:</label>
         <div class="controls">
-            <input ng-model="backlog.description" name="description">
+            <textarea ng-model="backlog.description" name="description"></textarea>
         </div>
     </div>
-    <div class="control-group">
-        <label for="name" class="control-label">name:</label>
+    <div class="form-actions">
         <div class="controls">
             <input type="submit" class="btn" ng-click="create($event)"  ng-disabled="backlog-form.$invalid">
         </div>
