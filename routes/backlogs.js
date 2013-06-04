@@ -6,6 +6,15 @@ var Model = require('../models/backlog'),
 exports.list = function(req, res) {
 }
 
+exports.retrieve = function(req, res) {
+  var id = new mongoose.Types.ObjectId(req.params.id);
+  Model.Backlog.findById(id, function(err, backlog) {
+    if(err) {
+      res.send(500);
+    }
+    res.send(backlog);
+  })
+};
 /**
  * create a new backlog
  */
@@ -15,9 +24,11 @@ exports.create = function(req, res) {
     if (err) {
       res.send(500);
     }
+    var id = backlog._id;
+    res.header('Location', '/backlogs/' + id);
     res.send(backlog);
   });
-}
+};
 
 /**
  * update a backlog
@@ -37,7 +48,7 @@ exports.update = function(req, res) {
       res.send(updated);
     }); 
   });
-}
+};
 
 /**
  * remove a backlog

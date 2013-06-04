@@ -43,6 +43,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/backlogs/:id', backlogs.retrieve);
 app.post('/backlogs', backlogs.create);
 app.put('/backlogs/:id', backlogs.update);
 app.delete('/backlogs/:id', backlogs.remove);
