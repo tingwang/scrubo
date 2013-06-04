@@ -26,12 +26,10 @@ angular.module('frontApp').directive('fibonnaci', function() {
     link: function(scope, elm, attrs, ctrl) {
       var fibonnacis = [1, 2, 3, 5, 8, 13, 20, 40, 80];
       ctrl.$parsers.unshift(function(viewValue) {
-        if (fibonnacis.indexOf(viewValue)) {
-          // it is valid
+        if (fibonnacis.indexOf(parseInt(viewValue)) >= 0) {
           ctrl.$setValidity('fibonnaci', true);
           return viewValue;
         } else {
-          // it is invalid, return undefined (no model update)
           ctrl.$setValidity('fibonnaci', false);
           return undefined;
         }

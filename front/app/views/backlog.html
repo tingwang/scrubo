@@ -1,5 +1,5 @@
 <h1>Backlogs</h1>
-<form name="backlog-form" class="form-horizontal">
+<form name="form" class="form-horizontal">
     <div class="control-group">
         <label for="name" class="control-label">Name:</label>
         <div class="controls">
@@ -10,7 +10,8 @@
     <div class="control-group">
         <label for="name" class="control-label">Story Points:</label>
         <div class="controls">
-            <input type="number" min="1" ng-model="backlog.storyPoints" name="story-points">
+            <input type="number" min="1" ng-model="backlog.storyPoints" name="story-points" fibonnaci>
+            <span ng-show="form.$error.fibonnaci">This is not valid fibonnaci!</span>
         </div>
     </div>
     <div class="control-group">
@@ -24,4 +25,6 @@
             <input type="submit" class="btn" ng-click="create($event)"  ng-disabled="backlog-form.$invalid">
         </div>
     </div>
+
+    <a class="btn" ng-click="click()">click me</a>
 </form>

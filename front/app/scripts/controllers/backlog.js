@@ -14,14 +14,26 @@ angular.module('frontApp')
               console.log(err);
             });
       }
+
+      $scope.click = function() {
+        console.log($scope.form.$error.fibonnaci);
+      };
+
       $scope.create = function(e) {
-        console.log('tried to save backlog');
-        $http.post('/backlogs', $scope.backlog)
+        var method = 'post'
+            , id = $routeParams.id
+            , url = '/backlogs';
+
+        if(id) {
+          method = 'put';
+          url = url + '/' + id;
+        }
+        $http[method](url, $scope.backlog)
             .success(function(data, status, header) {
-              console.log("backlog saved");
               var location = header('Location');
-              console.log(data, location);
-              $location.path(location);
+              if (location) {
+                $location.path(location);
+              }
             })
             .error(function(data) {
               console.log(data);
