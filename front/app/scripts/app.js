@@ -4,8 +4,8 @@ angular.module('frontApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+          templateUrl: 'views/backlog-list.html',
+          controller: 'BacklogListCtrl'
       })
       .when('/backlogs', {
         templateUrl: 'views/backlog.html',
