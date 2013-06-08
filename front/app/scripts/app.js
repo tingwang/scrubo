@@ -15,6 +15,10 @@ angular.module('frontApp', [])
           templateUrl: 'views/backlog.html',
           controller: 'BacklogCtrl'
         })
+      .when('/backlog-list', {
+        templateUrl: 'views/backlog-list.html',
+        controller: 'BacklogListCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
