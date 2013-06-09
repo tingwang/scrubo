@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('frontApp')
-    .controller('BacklogCtrl', function($scope, $http, $location, $routeParams, $q) {
+    .controller('BacklogCtrl', function($scope, $http, $location, $routeParams, $q, flash) {
 
       $scope.backlog = {
       };
@@ -33,6 +33,7 @@ angular.module('frontApp')
             .success(function(data, status, header) {
               var location = header('Location');
               defer.resolve($scope.backlog);
+              flash.notify('saved');
               if (location) {
                 $location.path(location);
               }
