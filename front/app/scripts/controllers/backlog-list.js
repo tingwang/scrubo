@@ -9,4 +9,5 @@ angular.module('frontApp')
           .error(function() {
 
           });
+      $scope.gridOptions = {data: 'backlogs'};
   }]);

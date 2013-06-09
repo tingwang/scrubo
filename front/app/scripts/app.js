@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('frontApp', [])
+angular.module('frontApp', ['ngGrid'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
