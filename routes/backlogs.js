@@ -4,7 +4,13 @@ var Model = require('../models/backlog'),
  * list all backlogs
  */
 exports.list = function(req, res) {
-}
+  Model.Backlog.find({}, function(err, backlogs) {
+    if(err) {
+      res.send(500);
+    }
+    res.send(backlogs);
+  });
+};
 
 exports.retrieve = function(req, res) {
   var id = new mongoose.Types.ObjectId(req.params.id);
