@@ -13,6 +13,8 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/bootstrap.css">
       <link rel="stylesheet" href="components/angular-grid/ng-grid.min.css">
+      <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+      <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 
     <!-- endbuild -->
@@ -27,6 +29,7 @@
       <script src="components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
+    <div notice></div>
     <!-- Add your site or application content here -->
     <div class="container" ng-view></div>
 
@@ -43,13 +46,5 @@
     <script src="scripts/controllers/backlog.js"></script>
     <script src="scripts/controllers/backlog-list.js"></script>
     <!-- endbuild -->
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
   </body>
 </html>
